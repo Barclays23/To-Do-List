@@ -6,11 +6,11 @@ import styles from "./assets/style.module.css"
 const App = () => {
    const inputRef = useRef();
 
-   const [list, setList] = useState([])
+   const [list, setList] = useState([]);
    // const [task, setTask] = useState([])
 
-   const [editIndex, setEditIndex] = useState(null)
-   const [editedTask, setEditedTask] = useState('')
+   const [editIndex, setEditIndex] = useState(null);
+   const [editedTask, setEditedTask] = useState('');
 
 
 
