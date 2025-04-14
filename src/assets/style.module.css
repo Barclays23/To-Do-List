@@ -1,6 +1,10 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+  /* background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d); */
+  background-image: url('/Just-do-it-background2.png');
+  background-size: cover;
+  /* background-position: center; */
+  height: 100vh;
   margin: 0;
   padding: 2rem;
   display: flex;
@@ -10,8 +14,10 @@ body {
 }
 
 .card {
-  background: linear-gradient(to right, #fdd881, #fdb2c9);
+  /* background: linear-gradient(to right, #fdd881, #fdb2c9); */
+  background: linear-gradient(to right, #fdd88125, #fdb2c929);
   backdrop-filter: blur(5px);
+  margin-top: 5rem;
   padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
@@ -39,6 +45,8 @@ body {
   flex: 1;
   padding: 0.75rem;
   border: 2px solid #ddaeae;
+  background-color: #2323232f;
+  color: white;
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s;
@@ -72,7 +80,8 @@ body {
 
 .list-item {
   height: 1rem;
-  background-color: #fafafa;
+  /* background-color: #fafafa; */
+  background-color: #fafafa76;
   padding: 1rem;
   border-radius: 0.75rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
