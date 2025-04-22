@@ -82,15 +82,13 @@ const App = () => {
                   )}
 
 
-                  {editIndex === index ? (
-                     <button className={styles["edit-btn"]} onClick={() => saveTask(index)}>
-                        Save
-                     </button>
-                  ) : (
-                     <button className={styles["edit-btn"]} onClick={() => editTask(index)}>
-                        Edit
-                     </button>
-                  )}
+                  <button
+                     className={editIndex === index ? styles["save-btn"] : styles["edit-btn"]}
+                     onClick={() => (editIndex === index ? saveTask(index) : editTask(index))}
+                     >
+                     {editIndex === index ? "Save" : "Edit"}
+                  </button>
+
 
                   <button className={styles["delete-btn"]} onClick={() => deleteTask(index)}>
                      Delete

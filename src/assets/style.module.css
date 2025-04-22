@@ -91,7 +91,9 @@ body {
   animation: slideUp 0.3s ease-in-out;
 }
 
+
 .edit-input {
+  flex: 1;
   border: 1.5px solid #ddaeae;
   border-radius: 8px;
   font-size: .9rem;
@@ -105,7 +107,7 @@ body {
 }
 
 .completed {
-  background-color: #03ff20a9;
+  background-color: #03ff208c;
 }
 
 .completed h6 {
@@ -146,6 +148,11 @@ body {
 
 .edit-btn:hover {
   background-color: #ffcb05;
+}
+
+.save-btn:hover {
+  background-color: #008cff;
+  color: white;
 }
 
 .delete-btn {
