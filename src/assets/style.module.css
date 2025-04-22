@@ -95,6 +95,9 @@ body {
 .edit-input {
   flex: 1;
   border: 1.5px solid #ddaeae;
+  background-color: #000000a4;
+  color: #ffffff;
+  padding: 0.2rem 0.3rem;
   border-radius: 8px;
   font-size: .9rem;
   transition: border-color 0.3s;
