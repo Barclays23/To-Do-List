@@ -104,6 +104,21 @@ body {
   color: #121212;
 }
 
+.completed {
+  background-color: #03ff20a9;
+}
+
+.completed h6 {
+  text-decoration: line-through #07070769;
+  color: #00000074;
+}
+
+.checkbox {
+  width: 20px;
+  height: auto;
+  margin-right: 0.5rem;
+}
+
 .list-item button {
   margin-left: 0.5rem;
   border: none;

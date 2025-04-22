@@ -1,13 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { useRef } from "react";
 import styles from "./assets/style.module.css"
 
 const App = () => {
-   const inputRef = useRef();
+   const [input, setInput] = useState('')
 
    const [list, setList] = useState([]);
-   // const [task, setTask] = useState([])
+   // const [task, setTask] = useState('')
 
    const [editIndex, setEditIndex] = useState(null);
    const [editedTask, setEditedTask] = useState('');
@@ -16,26 +15,24 @@ const App = () => {
 
    const addTask = (event)=> {
       event.preventDefault()
-      const inputTask = inputRef.current.value;
-      console.log(inputTask)
-      // setTask(inputTask)
-      if (!inputTask) {
-         return
-      }
-      setList([...list, inputTask])
-      inputRef.current.value = ''
+      if (!input.trim()) return;
+      
+      const newTask = { text: input, completed: false }
+      console.log('newTask :', newTask)
+
+      setList([...list, newTask]);
+      setInput('')
    }
 
-   const finishTask = ()=>{}
 
    const editTask = (index) => {
       setEditIndex(index);
-      setEditedTask(list[index]);
+      setEditedTask(list[index].text);
    };
 
    const saveTask = (index) => {
       const updatedList = [...list];
-      updatedList[index] = editedTask;
+      updatedList[index].text = editedTask;
       setList(updatedList);
       setEditIndex(null);
       setEditedTask('');
@@ -47,32 +44,58 @@ const App = () => {
    }
 
 
+   const finishTask = ()=>{} // toggleComplete
+
+   const toggleComplete = (index) => {
+      const updatedList = [...list];
+      updatedList[index].completed = !updatedList[index].completed;
+      setList(updatedList);
+   };
+   
+
+
    return (
       <div className={styles.card}>
          <h2>JUST DO IT</h2>
          <form className={styles["to-do-form"]}>
-            <input type="text" ref={inputRef} />
+            <input type="text" value={input} onChange={(e)=> setInput(e.target.value)} />
             <button className={styles["add-btn"]} type="submit" onClick={addTask}>ADD</button>
          </form>
          <div className={styles["to-do-list"]}>
             {list.map((task, index) => (
-               <div key={index} className={styles["list-item"]}>
-
+               <div key={index} className={`${styles["list-item"]} ${task.completed ? styles.completed : ''}`} >             
                   {editIndex === index ? (
-                  <input type="text" className={styles["edit-input"]} value={editedTask} onChange={(e) => setEditedTask(e.target.value)} />
+                     <input
+                        type="text"
+                        className={styles["edit-input"]}
+                        value={editedTask}
+                        onChange={(e) => setEditedTask(e.target.value)}
+                     />
                   ) : (
-                     <h6 className={styles.task}>{task}</h6>
+                     <>
+                        <img src={`${task.completed ? "./check-box-1.png" : "./check-box-2.png"}`} alt="check-box" 
+                           className={styles["checkbox"]}
+                           onClick={() => toggleComplete(index)}
+                        />
+                        <h6 className={`${styles.task}`}> {task.text} </h6>
+                     </>
                   )}
 
-                  {/* <button className={styles["finish-btn"]} onClick={finishTask}>Finish</button> */}
 
                   {editIndex === index ? (
-                     <button className={styles["edit-btn"]} onClick={() => saveTask(index)}>Save</button>
+                     <button className={styles["edit-btn"]} onClick={() => saveTask(index)}>
+                        Save
+                     </button>
                   ) : (
-                     <button className={styles["edit-btn"]} onClick={() => editTask(index)}>Edit</button>
+                     <button className={styles["edit-btn"]} onClick={() => editTask(index)}>
+                        Edit
+                     </button>
                   )}
 
-                  <button className={styles["delete-btn"]} onClick={()=>deleteTask(index)}>Delete</button>
+                  <button className={styles["delete-btn"]} onClick={() => deleteTask(index)}>
+                     Delete
+                  </button>
+                  
                </div>
             ))}
          </div>
