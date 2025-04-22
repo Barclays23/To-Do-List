@@ -73,7 +73,7 @@ const App = () => {
                      />
                   ) : (
                      <>
-                        <img src={`${task.completed ? "./check-box-1.png" : "./check-box-2.png"}`} alt="check-box" 
+                        <img src={`${task.completed ? "./check-box-6.png" : "./check-box-2.png"}`} alt="check-box" 
                            className={styles["checkbox"]}
                            onClick={() => toggleComplete(index)}
                         />
